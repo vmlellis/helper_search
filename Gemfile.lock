@@ -172,9 +172,9 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   mongoid (~> 5.1, >= 5.1.2)
   rails (= 4.2.6)
-  rails-assets-jquery!
-  rails-assets-jquery-ujs!
-  rails-assets-turbolinks!
+  rails-assets-jquery (= 2.2.3)!
+  rails-assets-jquery-ujs (= 1.2.1)!
+  rails-assets-turbolinks (= 2.4.1)!
   redis (~> 3.2, >= 3.2.2)
   rspec (~> 3.4)
   rubocop (~> 0.39.0)

@@ -67,7 +67,7 @@ group :development do
 end
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-jquery'
-  gem 'rails-assets-jquery-ujs'
-  gem 'rails-assets-turbolinks'
+  gem 'rails-assets-jquery', '2.2.3'
+  gem 'rails-assets-jquery-ujs', '1.2.1'
+  gem 'rails-assets-turbolinks', '2.4.1'
 end
