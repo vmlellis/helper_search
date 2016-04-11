@@ -1,0 +1,25 @@
+<%= form_for(@search_box) do |f| %>
+  <% if @search_box.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@search_box.errors.count, "error") %> prohibited this search_box from being saved:</h2>
+
+      <ul>
+      <% @search_box.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :text %><br>
+    <%= f.text_field :text %>
+  </div>
+  <div class="field">
+    <%= f.label :ip %><br>
+    <%= f.text_field :ip %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

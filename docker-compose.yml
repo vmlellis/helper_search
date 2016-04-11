@@ -5,5 +5,16 @@ web:
     - "3000:3000"
   links:
     - mongo
+    - redis
+sidekiq:
+  build: .
+  command: bundle exec sidekiq
+  volumes:
+    - .:/skapp
+  links:
+    - mongo
+    - redis
 mongo:
   image: mongo:3.2.4
+redis:
+  image: redis:3.0.7

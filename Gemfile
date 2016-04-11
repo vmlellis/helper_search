@@ -10,6 +10,12 @@ gem 'rails', '4.2.6'
 # Use mongo as the database for Active Record
 gem 'mongoid', '~> 5.1', '>= 5.1.2'
 
+# Redis
+gem 'redis', '~> 3.2', '>= 3.2.2'
+
+# Sidekiq
+gem 'sidekiq', '~> 4.1', '>= 4.1.1'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
@@ -26,10 +32,10 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Turbolinks makes following links in your web application faster.
 # Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+# gem 'jbuilder', '~> 2.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -48,15 +54,20 @@ group :development, :test do
   gem 'rubocop', '~> 0.39.0'
 
   # BDD
-  gem 'rspec', '~> 3.4'
+  gem 'rspec', '~> 3.4', require: false
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  # gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the
   # background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  # gem 'spring'
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-jquery-ujs'
+  gem 'rails-assets-turbolinks'
+end

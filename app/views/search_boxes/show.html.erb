@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @search_box.text %>
+</p>
+
+<p>
+  <strong>Ip:</strong>
+  <%= @search_box.ip %>
+</p>
+
+<%= link_to 'Edit', edit_search_box_path(@search_box) %> |
+<%= link_to 'Back', search_boxes_path %>
