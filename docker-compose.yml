@@ -24,7 +24,9 @@ worker:
     - mongo
     - redis
   environment:
-    RAILS_ENV: development
+    - RAILS_ENV=production
+  volumes:
+    - ./config:/home/app/config
 mongo:
   image: mongo:3.2.4
 redis:
