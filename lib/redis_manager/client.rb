@@ -1,4 +1,4 @@
-module Redis
+module RedisManager
   class Client
     include Singleton
 
