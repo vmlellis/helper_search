@@ -1,0 +1,20 @@
+FROM ruby:2.2.4
+MAINTAINER Victor Lellis <vmlellis@gmail.com>
+
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
+
+RUN apt-get update
+
+RUN apt-get install -y nodejs --no-install-recommends
+
+WORKDIR /tmp
+ADD Gemfile* $APP_HOME/
+RUN bundle install
+
+ENV APP_HOME /home/app
+
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
+
+COPY . $APP_HOME

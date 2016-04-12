@@ -49,6 +49,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Concurrent HTTP 1.1 server
+# gem 'puma', '~> 3.4'
+
+# Use Passenger as the app server
+gem 'passenger', '~> 5.0', '>= 5.0.27'
+
 group :development, :test do
   # Automatic Ruby code style checking tool.
   gem 'rubocop', '~> 0.39.0'
