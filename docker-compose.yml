@@ -10,20 +10,21 @@ web:
     - PASSENGER_APP_ENV=development
     - RAILS_ENV=development
     - REDIS_HOST=redis
-# proxy:
-#   image: jwilder/nginx-proxy:latest
-#   ports:
-#     - "80:80"
-#   volumes:
-#     - "/var/run/docker.sock:/tmp/docker.sock"
-# worker:
-#   build: .
-#   command: bundle exec sidekiq
-#   links:
-#     - mongo
-#     - redis
-#   environment:
-#     RAILS_ENV: development
+  volumes:
+    - ./app:/home/app/webapp/app
+    - ./lib:/home/app/webapp/lib
+    - ./log:/home/app/webapp/log
+    - ./config:/home/app/webapp/config
+    - ./spec:/home/app/webapp/spec
+worker:
+  build: .
+  dockerfile: Dockerfile.worker
+  command: bundle exec sidekiq
+  links:
+    - mongo
+    - redis
+  environment:
+    RAILS_ENV: development
 mongo:
   image: mongo:3.2.4
 redis:

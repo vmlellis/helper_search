@@ -9,7 +9,8 @@ RUN apt-get update
 RUN apt-get install -y nodejs --no-install-recommends
 
 WORKDIR /tmp
-ADD Gemfile* $APP_HOME/
+ADD Gemfile /tmp/
+ADD Gemfile.lock /tmp/
 RUN bundle install
 
 ENV APP_HOME /home/app
