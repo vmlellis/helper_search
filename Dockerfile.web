@@ -17,8 +17,12 @@ RUN rm /etc/nginx/sites-enabled/default
 ADD webapp.conf /etc/nginx/sites-enabled/webapp.conf
 ADD rails-env.conf /etc/nginx/main.d/rails-env.conf
 
+# APP environment
 ENV APP_HOME /home/app/webapp
 RUN mkdir -p $APP_HOME
+
+# Update bundle
+RUN gem install bundler
 
 # Install bundle of gems
 WORKDIR /tmp
@@ -29,7 +33,10 @@ RUN bundle install
 # Add the Rails app
 ADD . $APP_HOME
 
+RUN chown -R app:app $APP_HOME
+
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# APP workdir
 WORKDIR $APP_HOME

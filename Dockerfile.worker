@@ -1,4 +1,4 @@
-FROM ruby:2.2.4
+FROM ruby:2.2.3
 MAINTAINER Victor Lellis <vmlellis@gmail.com>
 
 # throw errors if Gemfile has been modified since Gemfile.lock
