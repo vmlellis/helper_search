@@ -8,6 +8,7 @@ web:
     - redis
   environment:
     - PASSENGER_APP_ENV=development
+    - RAILS_ENV=development
     - REDIS_HOST=redis
 # proxy:
 #   image: jwilder/nginx-proxy:latest
