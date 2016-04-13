@@ -10,6 +10,12 @@ gem 'mongoid', '~> 5.1', '>= 5.1.2'
 # Redis
 gem 'redis', '~> 3.2', '>= 3.2.2'
 
+# Sinatra (dependency to Sidekiq Monitor)
+gem 'sinatra', '~> 1.4', '>= 1.4.7', require: false
+
+# Slim (dependency to Sidekiq Monitor)
+gem 'slim', '~> 3.0', '>= 3.0.6'
+
 # Sidekiq
 gem 'sidekiq', '~> 4.1', '>= 4.1.1'
 

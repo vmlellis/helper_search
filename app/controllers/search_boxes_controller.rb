@@ -28,11 +28,15 @@ class SearchBoxesController < ApplicationController
 
     respond_to do |format|
       if @search_box.save
-        format.html { redirect_to @search_box, notice: 'Search box was successfully created.' }
+        format.html do
+          redirect_to @search_box, notice: notice_message('created')
+        end
         format.json { render :show, status: :created, location: @search_box }
       else
         format.html { render :new }
-        format.json { render json: @search_box.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @search_box.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -42,11 +46,15 @@ class SearchBoxesController < ApplicationController
   def update
     respond_to do |format|
       if @search_box.update(search_box_params)
-        format.html { redirect_to @search_box, notice: 'Search box was successfully updated.' }
+        format.html do
+          redirect_to @search_box, notice: notice_message('updated')
+        end
         format.json { render :show, status: :ok, location: @search_box }
       else
         format.html { render :edit }
-        format.json { render json: @search_box.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @search_box.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -56,19 +64,28 @@ class SearchBoxesController < ApplicationController
   def destroy
     @search_box.destroy
     respond_to do |format|
-      format.html { redirect_to search_boxes_url, notice: 'Search box was successfully destroyed.' }
+      format.html do
+        redirect_to search_boxes_url, notice: notice_message('destroyed')
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_search_box
-      @search_box = SearchBox.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def search_box_params
-      params.require(:search_box).permit(:text, :ip)
-    end
+  # Generate notice message
+  def notice_message(action)
+    'Search box was successfully #{action}.'
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_search_box
+    @search_box = SearchBox.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
+  def search_box_params
+    params.require(:search_box).permit(:text, :ip)
+  end
 end

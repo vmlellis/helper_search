@@ -1,4 +1,4 @@
-url = "redis://redis:6379/0"
+url = 'redis://redis:6379/0'
 
 Sidekiq.configure_server do |config|
   config.redis = { url: url }

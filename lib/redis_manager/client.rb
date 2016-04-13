@@ -1,13 +1,12 @@
 module RedisManager
+  # Redis Client
   class Client
     include Singleton
 
     def initialize
-      @client = Redis.new(:host => "redis", :port => 6380, :db => 1)
+      @redis = Redis.new(host: 'redis', port: 6379, db: 1)
     end
 
-    def get
-      @client
-    end
+    attr_reader :redis
   end
 end
