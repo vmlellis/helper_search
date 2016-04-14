@@ -1,6 +1,7 @@
 web:
   build: .
   dockerfile: Dockerfile.web
+  command: bin/start_web
   ports:
     - "3000:80"
   links:
@@ -18,7 +19,7 @@ web:
     - ./spec:/home/app/webapp/spec
 worker:
   build: .
-  dockerfile: Dockerfile.worker
+  dockerfile: Dockerfile.web
   command: bundle exec sidekiq
   links:
     - mongo

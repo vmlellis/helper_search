@@ -1,0 +1,2 @@
+/sbin/my_init
+rm -f /etc/service/nginx/down
