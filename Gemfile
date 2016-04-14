@@ -46,4 +46,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery', '2.2.3'
   gem 'rails-assets-jquery-ujs', '1.2.1'
   gem 'rails-assets-turbolinks', '2.4.1'
+  gem 'rails-assets-bootstrap-sass', '3.3.6'
 end
