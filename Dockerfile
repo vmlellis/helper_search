@@ -5,10 +5,10 @@ MAINTAINER Victor Lellis <vmlellis@gmail.com>
 ENV HOME /root
 
 # Use baseimage-docker's init system.
-# CMD ["/sbin/my_init"]
+CMD ["/sbin/my_init"]
 
 # Start Nginx / Passenger
-# RUN rm -f /etc/service/nginx/down
+RUN rm -f /etc/service/nginx/down
 
 # Remove the default site
 RUN rm /etc/nginx/sites-enabled/default

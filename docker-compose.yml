@@ -1,7 +1,7 @@
 web:
   build: .
   dockerfile: Dockerfile.web
-  command: bin/start_web
+  command: /sbin/my_init
   ports:
     - "3000:80"
   links:
@@ -17,9 +17,9 @@ web:
     - ./log:/home/app/webapp/log
     - ./config:/home/app/webapp/config
     - ./spec:/home/app/webapp/spec
+    - ./bin:/home/app/webapp/bin
 worker:
   build: .
-  dockerfile: Dockerfile.web
   command: bundle exec sidekiq
   links:
     - mongo
@@ -27,6 +27,7 @@ worker:
   environment:
     - RAILS_ENV=production
   volumes:
+    - ./app:/home/app/webapp/app
     - ./config:/home/app/config
 mongo:
   image: mongo:3.2.4
