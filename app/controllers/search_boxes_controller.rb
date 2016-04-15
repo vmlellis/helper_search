@@ -5,6 +5,10 @@ class SearchBoxesController < ApplicationController
   # GET /search_boxes.json
   def index
     @search_boxes = SearchBox.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @search_boxes }
+    end
   end
 
   # GET /search_boxes/1

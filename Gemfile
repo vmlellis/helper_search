@@ -31,9 +31,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# JSON
-gem 'jbuilder', '~> 2.4', '>= 2.4.1'
-
 # Use Passenger as the app server
 gem 'passenger', '~> 5.0', '>= 5.0.27'
 
@@ -49,5 +46,4 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery', '2.2.3'
   gem 'rails-assets-jquery-ujs', '1.2.1'
   gem 'rails-assets-turbolinks', '2.4.1'
-  gem 'rails-assets-bootstrap-sass', '3.3.6'
 end
