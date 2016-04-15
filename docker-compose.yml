@@ -1,6 +1,5 @@
 web:
   build: .
-  dockerfile: Dockerfile.web
   command: /sbin/my_init
   ports:
     - "3000:80"
